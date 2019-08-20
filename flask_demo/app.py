@@ -2,9 +2,14 @@ import logging
 
 from flask import Flask
 from flask_restplus import Api, Resource
+from api.restplus import api
+
 
 log = logging.getLogger(__name__)
 app = Flask(__name__)
+
+
+# api = Api(app)
 
 
 @api.route("/hello")
