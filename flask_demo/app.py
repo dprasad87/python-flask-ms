@@ -8,7 +8,7 @@ from api.restplus import api
 from database import db
 
 log = logging.getLogger(__name__)
-app = Flask(__name__)
+application = Flask(__name__)
 
 
 def configure_app(flask_app):
@@ -26,8 +26,12 @@ def initialize_app(flask_app):
     db.init_app(flask_app)
 
 
+def create_app():
+    initialize_app(application)
+    return application
+
 if __name__ == '__main__':
-    initialize_app(app)
+    initialize_app(application)
     log.info(">>> Starting the dev app at url http://{}/".format('localhost'))
-    log.info(">>> App Name: %s " % app.name)
-    app.run('localhost', '8081', debug=True)
+    log.info(">>> App Name: %s " % application.name)
+    application.run('localhost', '8081', debug=True)

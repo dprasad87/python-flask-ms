@@ -1,10 +1,8 @@
 from flask import request
 from flask_restplus import Resource
-
 from api.restplus import api
 
 import api.blog.serializers as serializers
-
 import api.blog.business as business
 
 
